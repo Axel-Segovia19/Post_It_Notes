@@ -38,7 +38,7 @@ class Api::NotesController < ApplicationController
     end 
 
     def set_note
-    @note = Chart.find(params[:id])
+    @note = Note.find(params[:id])
     end
 
 end
