@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   namespace :api do 
-    resources :notes, except: [:index, :show, :update, :create, :destroy] 
+    resources :notes
   end
 end
