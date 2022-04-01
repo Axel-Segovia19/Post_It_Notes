@@ -1,5 +1,4 @@
 class Note < ApplicationRecord  
 
-validates :number, :title, :body, presence: true
-validates :number, uniqueness: true
+validates :title, :body, presence: true
 end

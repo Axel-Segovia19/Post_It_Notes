@@ -1,4 +1,5 @@
 import Note from './Note';
+
 const NoteList = ({ notes, updateNote, deleteNote}) => (
 
   <>

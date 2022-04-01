@@ -1,11 +1,11 @@
 
 import { useState, useEffect } from "react";
-const NoteForm = ({ addNote, id, title, body, number, updateNote, setEdit }) => {
-  const [note, setNote] = useState({ number: 0, title: '', body: ''})
+const NoteForm = ({ addNote, id, title, body, updateNote, setEdit }) => {
+  const [note, setNote] = useState({ title: '', body: ''})
 
     useEffect( () => {
       if (id) {
-        setNote({ title, number, body })
+        setNote({ title, body })
       }
     }, [])
   const handleSubmit = (e) => {
@@ -16,7 +16,7 @@ const NoteForm = ({ addNote, id, title, body, number, updateNote, setEdit }) => 
     } else {
       addNote(note)
     }
-    setNote({ number: 0, title: '', body: ''})
+    setNote({ title: '', body: ''})
 
   }
   return(
@@ -26,16 +26,8 @@ const NoteForm = ({ addNote, id, title, body, number, updateNote, setEdit }) => 
       name='title'
       value={note.title}
       onChange={ (e) => setNote({ ...note, title: e.target.value })}
-
       placeholder='Title'
       required
-      />
-       <input 
-        type="number"
-        value={note.number}
-        size='2'
-        onChange={ (e) => setNote({ ...note, number: e.target.value })}
-        required
       />
       <textarea
       name='body'

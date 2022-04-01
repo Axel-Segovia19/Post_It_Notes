@@ -1,14 +1,13 @@
 import { useState } from "react";
 import NoteForm from "./NoteForm";
 
-const Note = ({id, number, title, body, updateNote, deleteNote}) => {
+const Note = ({id, title, body, updateNote, deleteNote}) => {
   const [editing, setEdit] = useState(false)
 
 
   return (
     <>
       <h1>{title}</h1>
-      <p>{number}</p>
       <h2>{body}</h2>
       {
       editing ?
@@ -16,7 +15,6 @@ const Note = ({id, number, title, body, updateNote, deleteNote}) => {
         <NoteForm 
         id={id}
         title={title}
-        number={number}
         body={body}
         updateNote={updateNote}
         setEdit={setEdit}
