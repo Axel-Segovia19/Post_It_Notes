@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import NoteForm from './NoteForm';
 import NoteList from './NoteList';
+import { Button } from 'react-bootstrap';
 
 const Notes = () => {
   const [notes, setNotes] = useState([])
-
+  const [adding, setAdd] = useState([])
+  
   useEffect( () => {
     axios.get('/api/notes')
     .then ( res => {
@@ -46,8 +48,19 @@ const Notes = () => {
 
   return(
   <>
+  {
+    adding ?
+    <>
+    <NoteForm 
+    addNote={addNote} 
+    setAdd={setAdd}
+    />
+    <Button variant="warning" onClick={() => setAdd(false)}>Cancel</Button>
+    </>
+        :
+    <Button onClick={() => setAdd(true)}>+</Button>
+      }
     <h1>Notes</h1>
-    <NoteForm addNote={addNote} />
     <NoteList  
     notes={notes}
     updateNote={updateNote}
